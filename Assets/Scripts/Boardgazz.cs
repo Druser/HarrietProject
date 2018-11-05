@@ -31,7 +31,7 @@ public class Boardgazz : MonoBehaviour
             transform.position = Camera.main.ScreenToWorldPoint(fingerposition);
             Debug.Log(transform.position);
             frames = frames + 1;
-            bulletSpeed = 100;
+            bulletSpeed = 10;
 
             if( frames > bulletSpeed)
             {
