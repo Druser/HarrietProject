@@ -8,8 +8,8 @@ public class BallScript : MonoBehaviour {
 
 
     public GameObject GameManager;
-
     int life;
+    public bool lost;
     Rigidbody2D RB;
 
 	// Use this for initialization
@@ -49,12 +49,20 @@ public class BallScript : MonoBehaviour {
         if (collision.tag == "Bullet")
         {
             life = life - 1;
-
-            gameObject.SendMessage("IncreaseScore", 1);
+            GameObject.FindWithTag("Manager").GetComponent<Manager>().IncreaseScore(1);
 
         }
 
+
+        if (collision.tag == "Player")
+        {
+
+            lost = true;
+            Time.timeScale = 0.0f;
+
+        }
        
+
 
     }
 

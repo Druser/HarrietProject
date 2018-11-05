@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour {
     {
         score = 0;
         Score.text = "Score:" + score.ToString();
-        InvokeRepeating("SpawnBalls", 1, 1);
+        InvokeRepeating("SpawnBalls", 1, 2);
     } 
 	
 	// Update is called once per frame
@@ -33,9 +33,12 @@ public class Manager : MonoBehaviour {
     
 }
 
-    void IncreaseScore(int increment)
+    public void IncreaseScore(int increment)
     {
         score = score + increment;
         Score.text = "Score:" + score.ToString();
+        Debug.Log("Porco dio");
     }
+
+  
 }

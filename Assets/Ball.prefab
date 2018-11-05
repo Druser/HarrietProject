@@ -193,6 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 0}
+  scoreText: {fileID: 0}
+  lost: 0
 --- !u!212 &212918051026781308
 SpriteRenderer:
   m_ObjectHideFlags: 1
