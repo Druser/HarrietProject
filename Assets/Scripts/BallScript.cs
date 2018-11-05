@@ -15,7 +15,7 @@ public class BallScript : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        life = Random.Range(1, 5);
+        life = Random.Range(1, 15);
 
         if(transform.position.x < 0)
         {
@@ -50,7 +50,7 @@ public class BallScript : MonoBehaviour {
         {
             life = life - 1;
 
-            
+            gameObject.SendMessage("IncreaseScore", 1);
 
         }
 

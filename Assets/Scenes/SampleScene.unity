@@ -286,6 +286,7 @@ MonoBehaviour:
   - {fileID: 688798561}
   - {fileID: 1208966005}
   - {fileID: 1885712368}
+  Score: {fileID: 968475378}
 --- !u!4 &358637690
 Transform:
   m_ObjectHideFlags: 0
