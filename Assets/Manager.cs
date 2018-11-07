@@ -16,7 +16,7 @@ public class Manager : MonoBehaviour {
     {
         score = 0;
         Score.text = "Score:" + score.ToString();
-        InvokeRepeating("SpawnBalls", 1, 2);
+        InvokeRepeating("SpawnBalls", 1, 1);
     } 
 	
 	// Update is called once per frame

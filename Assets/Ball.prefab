@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0.5
+  m_GravityScale: 0.2
   m_Material: {fileID: 6200000, guid: c0a37b5c30d241040a69f1764bfe72ee, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 0}
-  scoreText: {fileID: 0}
   lost: 0
 --- !u!212 &212918051026781308
 SpriteRenderer:

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Cannon : MonoBehaviour
+public class Boardgazz : MonoBehaviour
 {
-    
+
     public Vector3 fingerposition;
     public GameObject bulletInstance;
     public int bulletSpeed;

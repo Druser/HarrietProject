@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 358637689}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1074,7 +1074,7 @@ Transform:
   m_LocalScale: {x: 0.2016888, y: 0.2016888, z: 0.2016888}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &1815183126
 MonoBehaviour:
@@ -1189,7 +1189,7 @@ Prefab:
     - target: {fileID: 224539981417598608, guid: e955f32b1fb0ed245a0045687b335140,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224539981417598608, guid: e955f32b1fb0ed245a0045687b335140,
         type: 2}
