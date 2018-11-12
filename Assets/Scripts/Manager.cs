@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour {
 
+    BallScript ballScript;
     public GameObject ballInstance;
     public Transform[] spawnPoints;
-    int score;
+    int score, lifeStartInit, sizeInit;
     public Text Score;
 
+    
 
     // Use this for initialization
     void Start ()
@@ -27,14 +29,21 @@ public class Manager : MonoBehaviour {
 
     void SpawnBalls()
 {
-    
-      int Index = Random.Range(0, spawnPoints.Length);
-      Instantiate(ballInstance, spawnPoints[Index].position, spawnPoints[Index].rotation);
-    
-}
+
+
+
+        int Index = Random.Range(0, spawnPoints.Length);
+        lifeStartInit = Random.Range(1, 30);
+        sizeInit = Random.Range(1, 7);
+        GameObject newBall = Instantiate(ballInstance, spawnPoints[Index].position, spawnPoints[Index].rotation) as GameObject;
+        newBall.GetComponent<BallScript>().InitBall(lifeStartInit, sizeInit);
+
+    }
 
     public void IncreaseScore(int increment)
     {
+        
+        
         score = score + increment;
         Score.text = "Score:" + score.ToString();
         Debug.Log("Porco dio");
