@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 950805306cffca345a912afdceda9185
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GameManager: {fileID: 1413421373127106, guid: 9c277a4c121154347878520fd559961a,
+      type: 2}
+  - Ball: {fileID: 1834783905882828, guid: 805d466d57af98b42b1feb99955aa5aa, type: 2}
+  - ballSprite1: {instanceID: 0}
+  - ballSprite2: {instanceID: 0}
+  - ballSprite3: {instanceID: 0}
+  - ballSprite4: {instanceID: 0}
+  - ballSprite5: {instanceID: 0}
+  - ballSprite6: {instanceID: 0}
+  - ballSprite7: {instanceID: 0}
+  - ballSprite8: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
