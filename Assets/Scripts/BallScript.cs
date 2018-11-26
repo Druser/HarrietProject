@@ -14,6 +14,7 @@ public class BallScript : MonoBehaviour {
     Rigidbody2D RB;
     public Sprite ballSprite1, ballSprite2, ballSprite3, ballSprite4, ballSprite5, ballSprite6, ballSprite7, ballSprite8;
     Sprite ballSelection;
+  
 
     // Use this for initialization
     void Start ()
@@ -70,24 +71,39 @@ public class BallScript : MonoBehaviour {
 
         if (Input.GetKeyDown("n"))
         {
-            life--;
+            life = 0;
         }
+
+        //Create a smaller ball when killed, if it's a medium or big ball
         if (life == 0 || life < 0)
         {
             if (size <= 5 && size > 2)
             {
+                //Spawn Ball half the Size
                 lifeStart = lifeStart / 2;
                 size = 2;
                 GameObject newBall = Instantiate(Ball, transform.position, transform.rotation) as GameObject;
                 newBall.GetComponent<BallScript>().InitBall(lifeStart, size);
+                //Spawn 3 Coins
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+
             }
             else if (size > 5)
             {
+                //Spawn Ball half the Size
                 lifeStart = lifeStart / 2;
                 size = 5;
                 GameObject newBall = Instantiate(Ball, transform.position, transform.rotation) as GameObject;
                 newBall.GetComponent<BallScript>().InitBall(lifeStart, size);
-            }       
+                //Spawn 6 Coins
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+                GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+            }
+            GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
             Destroy(gameObject);
         }
 
@@ -122,21 +138,17 @@ public class BallScript : MonoBehaviour {
         CreateOriginal();
     }
 
+    //Create Original Ball
     public void CreateOriginal()
     {
 
         life = lifeStart;
-        //Debug.Log(life);
-
-
         if (transform.position.x < 0)
         {
-            Debug.Log("porco");
             GetComponent<Rigidbody2D>().AddForce(new Vector2(2, 0), ForceMode2D.Impulse);
         }
         else
         {
-            Debug.Log(transform.localPosition.x);
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-2, 0), ForceMode2D.Impulse);
         }
         //GetComponent<Rigidbody2D>().angularVelocity = 100;

@@ -401,6 +401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballInstance: {fileID: 1834783905882828, guid: 805d466d57af98b42b1feb99955aa5aa,
     type: 2}
+  coinInstance: {fileID: 1601104876578648, guid: a757a1e5e9520bf4f90d601c14a13fc6,
+    type: 2}
   spawnPoints:
   - {fileID: 4284691348244702}
   - {fileID: 4350581892576700}
@@ -415,4 +417,5 @@ MonoBehaviour:
   - {fileID: 4562295623714008}
   - {fileID: 4956587805617084}
   whichCannon: 0
-  Score: {fileID: 0}
+  Score: {fileID: 114812968551459338, guid: e955f32b1fb0ed245a0045687b335140, type: 2}
+  Money: {fileID: 114134408613993568, guid: e955f32b1fb0ed245a0045687b335140, type: 2}

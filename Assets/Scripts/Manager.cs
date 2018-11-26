@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class Manager : MonoBehaviour {
 
     BallScript ballScript;
-    public GameObject ballInstance;
+    public GameObject ballInstance, coinInstance;
     public Transform[] spawnPoints;
-    int score, lifeStartInit, sizeInit;
+    int score, highScore, lifeStartInit, sizeInit, money, moneyAccount, moneyRandInit;
+    string username;
     public int whichCannon;
-    public Text Score;
+    public Text Score, Money;
 
     
 
@@ -18,6 +19,7 @@ public class Manager : MonoBehaviour {
     void Start ()
     {
         score = 0;
+        money = 0;
         Score.text = "Score:" + score.ToString();
         InvokeRepeating("SpawnBalls", 1, 1);
         whichCannon = Random.Range(1, 7);
@@ -27,8 +29,9 @@ public class Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        
-	}
+        Score.text = "Score:" + score.ToString();
+        Money.text = "Money:" + money.ToString();
+    }
 
     void SpawnBalls()
     {
@@ -39,12 +42,23 @@ public class Manager : MonoBehaviour {
         newBall.GetComponent<BallScript>().InitBall(lifeStartInit, sizeInit);
     }
 
+    public void SpawnCoins(Transform coinTrans)
+    {
+        moneyRandInit = Random.Range(1, 101);
+        GameObject newCoin = Instantiate(coinInstance, coinTrans.position, coinTrans.rotation) as GameObject;
+        newCoin.GetComponent<Money>().InitCoin(moneyRandInit);
+
+    }
+
     public void IncreaseScore(int increment)
     {          
         score = score + increment;
-        Score.text = "Score:" + score.ToString();
-        Debug.Log("Porco dio");
     }
 
-  
+    public void IncreaseMoney(int value)
+    {
+        money = money + value;
+    }
+
+
 }
