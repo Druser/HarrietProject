@@ -9,18 +9,20 @@ public class BallScript : MonoBehaviour {
 
     public GameObject GameManager;
     public GameObject Ball;
-    public int life, size, lifeStart,kek;
+    public int life, size, lifeStart;
     public bool lost;
     Rigidbody2D RB;
     public Sprite ballSprite1, ballSprite2, ballSprite3, ballSprite4, ballSprite5, ballSprite6, ballSprite7, ballSprite8;
     Sprite ballSelection;
+    public AudioClip BallExplode;
+    
   
 
     // Use this for initialization
     void Start ()
     {
 
-
+       
 
     }
 	
@@ -28,6 +30,7 @@ public class BallScript : MonoBehaviour {
 	void Update ()
     {
         //Color of the Ball
+
 
         if (life >= 1 && life <= 19)
         {
@@ -71,12 +74,17 @@ public class BallScript : MonoBehaviour {
 
         if (Input.GetKeyDown("n"))
         {
+
             life = 0;
+
         }
 
         //Create a smaller ball when killed, if it's a medium or big ball
         if (life == 0 || life < 0)
         {
+
+            GameObject.FindGameObjectWithTag("Manager").GetComponent<AudioSource>().PlayOneShot(BallExplode);
+
             if (size <= 5 && size > 2)
             {
                 //Spawn Ball half the Size
@@ -104,6 +112,7 @@ public class BallScript : MonoBehaviour {
                 GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
             }
             GameObject.FindWithTag("Manager").GetComponent<Manager>().SpawnCoins(transform);
+            
             Destroy(gameObject);
         }
 
@@ -122,8 +131,7 @@ public class BallScript : MonoBehaviour {
         if (collision.tag == "Player")
         {
 
-            lost = true;
-            Time.timeScale = 0.0f;
+            GameObject.FindWithTag("Manager").GetComponent<Manager>().Death();
 
         }
 

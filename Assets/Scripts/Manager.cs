@@ -18,19 +18,27 @@ public class Manager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        
         score = 0;
         money = 0;
         Score.text = "Score:" + score.ToString();
         InvokeRepeating("SpawnBalls", 1, 1);
         whichCannon = Random.Range(1, 7);
 
+        PlayerPrefs.GetInt("MoneyAccount", moneyAccount);
+        print(moneyAccount);
     } 
 	
 	// Update is called once per frame
 	void Update ()
     {
-        Score.text = "Score:" + score.ToString();
-        Money.text = "Money:" + money.ToString();
+        Score.text =  score.ToString();
+        Money.text =  money.ToString();
+
+        if (score > highScore)
+        {
+            highScore = score;
+        }
     }
 
     void SpawnBalls()
@@ -58,6 +66,14 @@ public class Manager : MonoBehaviour {
     public void IncreaseMoney(int value)
     {
         money = money + value;
+    }
+
+    public void Death()
+    {
+        moneyAccount = moneyAccount + money;
+        print(moneyAccount);
+        PlayerPrefs.SetInt("MoneyAccount", moneyAccount);
+
     }
 
 

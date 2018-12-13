@@ -5,8 +5,11 @@ using UnityEngine;
 public class Money : MonoBehaviour
 {
     int numberCoins, moneyRand, movementRand, coinValue;
-	// Use this for initialization
-	void Start ()
+    public Sprite MoneySprite1, MoneySprite2, MoneySprite3, MoneySprite4;
+    public AudioClip CoinCollect;
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -14,7 +17,7 @@ public class Money : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        print(moneyRand);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,7 +25,7 @@ public class Money : MonoBehaviour
         if (collision.tag == "Player")
         {
             GameObject.FindWithTag("Manager").GetComponent<Manager>().IncreaseMoney(coinValue);
-            print(coinValue);
+            GameObject.FindGameObjectWithTag("Manager").GetComponent<AudioSource>().PlayOneShot(CoinCollect);
             Destroy(gameObject);
         }
     }
@@ -49,17 +52,22 @@ public class Money : MonoBehaviour
         if (moneyRand <= 45)
         {
             coinValue = 1;
+            GetComponent<SpriteRenderer>().sprite = MoneySprite1;
         }
         else if (moneyRand >= 46 && moneyRand <= 75)
         {
             coinValue = 5;
+            GetComponent<SpriteRenderer>().sprite = MoneySprite2;
         }
         else if (moneyRand >= 76 && moneyRand <= 95)
         {
             coinValue = 10;
+            GetComponent<SpriteRenderer>().sprite = MoneySprite3;
+
         } else  if (moneyRand >= 96 && moneyRand <= 100)
         {
             coinValue = 50;
+            GetComponent<SpriteRenderer>().sprite = MoneySprite4;
         }
     }
 }

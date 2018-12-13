@@ -49,6 +49,7 @@ public class Cannon : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = CannonSprite6;
         }
+
         fingerposition = Input.GetTouch(0).position;
         fingerposition.z = 10f;
         fingerposition.y = 10f;
