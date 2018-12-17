@@ -6,11 +6,12 @@ public class BulletScript : MonoBehaviour
 {
     public Sprite BulletSprite1, BulletSprite2, BulletSprite3, BulletSprite4, BulletSprite5, BulletSprite6;
     int bulletSelection;
+    public AudioClip LaserShoot;
 
     // Use this for initialization
     void Start()
     {
-        
+        GameObject.FindGameObjectWithTag("Manager").GetComponent<AudioSource>().PlayOneShot(LaserShoot);
     }
 
     // Update is called once per frame
@@ -60,7 +61,6 @@ public class BulletScript : MonoBehaviour
         if (collision.tag == "Ball")
         {
             Destroy(gameObject);
-
         }
     }
 

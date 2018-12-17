@@ -55,25 +55,9 @@ public class Cannon : MonoBehaviour
         fingerposition.y = 10f;
         fingerposition.y = fingerposition.y + 250f;
 
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-        {
-            transform.position = Camera.main.ScreenToWorldPoint(fingerposition);
-            Debug.Log(transform.position);
-            frames = frames + 1;
-            bulletSpeed = 10;
-
-            if( frames > bulletSpeed)
-            {
-                Instantiate(bulletInstance, transform.position, transform.rotation);
-                frames = 0;
-            }
-            
-        }
-        
         //Temporary shoot Button from PC
-        if (Input.GetMouseButton(1))
+        if (Input.GetButtonDown("a"))
         {
-            Debug.Log(transform.position);
             frames = frames + 1;
             bulletSpeed = 10;
 
@@ -84,6 +68,22 @@ public class Cannon : MonoBehaviour
             }
 
         }
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+        {
+            transform.position = Camera.main.ScreenToWorldPoint(fingerposition);
+            frames = frames + 1;
+            bulletSpeed = 1;
+
+            if( frames > bulletSpeed)
+            {
+                Instantiate(bulletInstance, transform.position, transform.rotation);
+                frames = 0;
+            }
+            
+        }
+        
+
     }
 
 }

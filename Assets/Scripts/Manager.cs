@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour {
     string username;
     public int whichCannon;
     public Text Score, Money;
+    public bool gameOn = false;
 
     
 
@@ -19,14 +20,11 @@ public class Manager : MonoBehaviour {
     void Start ()
     {
         
-        score = 0;
-        money = 0;
+
         Score.text = "Score:" + score.ToString();
-        InvokeRepeating("SpawnBalls", 1, 1);
+        
         whichCannon = Random.Range(1, 7);
 
-        PlayerPrefs.GetInt("MoneyAccount", moneyAccount);
-        print(moneyAccount);
     } 
 	
 	// Update is called once per frame
@@ -76,5 +74,11 @@ public class Manager : MonoBehaviour {
 
     }
 
+    public void StartGame()
+    {
+        InvokeRepeating("SpawnBalls", 1, 5);
+        score = 0;
+        money = 0;
+    }
 
 }
